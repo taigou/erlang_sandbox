@@ -2,7 +2,7 @@
 -export([start/0, print/1, stop/1, loop/0]).
 
 start() ->
-  process_flag(trap_exit, true),
+%%  process_flag(trap_exit, true),
   Pid = spawn_link(?MODULE, loop, []),
   register(echo_server, Pid),
   { ok, Pid }.
