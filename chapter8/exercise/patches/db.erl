@@ -44,4 +44,5 @@ code_upgrade(L) -> to_ets(L, new()).
 to_ets([], Ets) -> Ets;
 to_ets([{ Key, Elem }|Tail], Ets) ->
 %    to_ets(Tail, gb_trees:insert(Key, Elem, Ets)).
-    to_ets(Tail, ets:insert(Ets, { Key, Elem })).
+    ets:insert(Ets, { Key, Elem }),
+    to_ets(Tail, Ets).
